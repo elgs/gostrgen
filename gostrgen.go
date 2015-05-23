@@ -13,6 +13,12 @@ var Upper = 1 << 1
 var Digit = 1 << 2
 var Punct = 1 << 3
 
+var LowerUpper = Lower | Upper
+var LowerDigit = Lower | Digit
+var UpperDigit = Upper | Digit
+var LowerUpperDigit = LowerUpper | Digit
+var All = LowerUpperDigit | Punct
+
 var lower = "abcdefghijklmnopqrstuvwxyz"
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var digit = "0123456789"
