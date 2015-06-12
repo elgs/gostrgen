@@ -24,6 +24,10 @@ var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var digit = "0123456789"
 var punct = "~!@#$%^&*()_+-="
 
+func init() {
+	rand.Seed(time.Now().UTC().UnixNano())
+}
+
 func RandGen(size int, set int, include string, exclude string) (string, error) {
 	all := include
 	if set&Lower > 0 {
@@ -43,7 +47,6 @@ func RandGen(size int, set int, include string, exclude string) (string, error) 
 	if len(exclude) >= lenAll {
 		return "", errors.New("Too much to exclude.")
 	}
-	rand.Seed(time.Now().UTC().UnixNano())
 	buf := make([]byte, size)
 	for i := 0; i < size; i++ {
 		b := all[rand.Intn(lenAll)]
