@@ -15,16 +15,16 @@ import (
 
 func main() {
 
-	// possible alphabet set are:
+	// possible character sets are:
 	// Lower, Upper, Digit, Punct, LowerUpper, LowerDigit, UpperDigit, LowerUpperDigit and All.
 	// Any of the above can be combine by "|", e.g. LowerUpper is the same as Lower | Upper
 
-	chararactersToGenerate := 20
-	set := gostrgen.Lower | gostrgen.Digit
-	include := "[]{}<>" // optionally include some additional letters
-	exclude := "Ol"     //exclude big 'O' and small 'l' to avoid confusion with zero and one.
+	charsToGenerate := 20
+	charSet := gostrgen.Lower | gostrgen.Digit
+	includes := "[]{}<>" // optionally include some additional letters
+	excludes := "Ol"     //exclude big 'O' and small 'l' to avoid confusion with zero and one.
 
-	str, err := gostrgen.RandGen(chararactersToGenerate, set, include, exclude)
+	str, err := gostrgen.RandGen(charsToGenerate, charSet, includes, excludes)
 	if err != nil {
 		fmt.Println(err)
 	}
