@@ -8,21 +8,22 @@ import (
 	"time"
 )
 
-var Lower = 1 << 0
-var Upper = 1 << 1
-var Digit = 1 << 2
-var Punct = 1 << 3
+const None = 0
+const Lower = 1 << 0
+const Upper = 1 << 1
+const Digit = 1 << 2
+const Punct = 1 << 3
 
-var LowerUpper = Lower | Upper
-var LowerDigit = Lower | Digit
-var UpperDigit = Upper | Digit
-var LowerUpperDigit = LowerUpper | Digit
-var All = LowerUpperDigit | Punct
+const LowerUpper = Lower | Upper
+const LowerDigit = Lower | Digit
+const UpperDigit = Upper | Digit
+const LowerUpperDigit = LowerUpper | Digit
+const All = LowerUpperDigit | Punct
 
-var lower = "abcdefghijklmnopqrstuvwxyz"
-var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var digit = "0123456789"
-var punct = "~!@#$%^&*()_+-="
+const lower = "abcdefghijklmnopqrstuvwxyz"
+const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const digit = "0123456789"
+const punct = "~!@#$%^&*()_+-="
 
 func init() {
 	rand.Seed(time.Now().UTC().UnixNano())

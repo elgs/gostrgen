@@ -16,7 +16,7 @@ import (
 func main() {
 
 	// possible character sets are:
-	// Lower, Upper, Digit, Punct, LowerUpper, LowerDigit, UpperDigit, LowerUpperDigit and All.
+	// Lower, Upper, Digit, Punct, LowerUpper, LowerDigit, UpperDigit, LowerUpperDigit, All and None.
 	// Any of the above can be combine by "|", e.g. LowerUpper is the same as Lower | Upper
 
 	charsToGenerate := 20
