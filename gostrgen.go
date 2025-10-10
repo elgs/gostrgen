@@ -1,8 +1,6 @@
-// gostrgen
 package gostrgen
 
 import (
-	"errors"
 	"math/rand"
 	"strings"
 	"time"
@@ -25,11 +23,8 @@ const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const digit = "0123456789"
 const punct = "~!@#$%^&*()_+-="
 
-func init() {
-	rand.Seed(time.Now().UTC().UnixNano())
-}
-
-func RandGen(size int, set int, include string, exclude string) (string, error) {
+func RandGen(size int, set int, include string, exclude string) string {
+	rng := rand.New(rand.NewSource(time.Now().UnixNano()))
 	all := include
 	if set&Lower > 0 {
 		all += lower
@@ -46,16 +41,16 @@ func RandGen(size int, set int, include string, exclude string) (string, error) 
 
 	lenAll := len(all)
 	if len(exclude) >= lenAll {
-		return "", errors.New("Too much to exclude.")
+		return ""
 	}
 	buf := make([]byte, size)
 	for i := 0; i < size; i++ {
-		b := all[rand.Intn(lenAll)]
+		b := all[rng.Intn(lenAll)]
 		if strings.Contains(exclude, string(b)) {
 			i--
 			continue
 		}
 		buf[i] = b
 	}
-	return string(buf), nil
+	return string(buf)
 }

@@ -24,10 +24,7 @@ func main() {
 	includes := "[]{}<>" // optionally include some additional letters
 	excludes := "Ol"     //exclude big 'O' and small 'l' to avoid confusion with zero and one.
 
-	str, err := gostrgen.RandGen(charsToGenerate, charSet, includes, excludes)
-	if err != nil {
-		fmt.Println(err)
-	}
+	str := gostrgen.RandGen(charsToGenerate, charSet, includes, excludes)
 	fmt.Println(str) // zxh9[pvoxbaup32b7s0d
 }
 ```
